@@ -1,0 +1,16 @@
+post_install() {
+cat << EOF
+
+==> Change static IP address in /etc/conf.d/network
+
+==> To start network use this commands as root :
+	systemctl start network.service
+
+==> To enable it on boot :
+	systemctl enable network.service
+
+EOF
+}
+post_upgrade() {
+	post_install
+}
